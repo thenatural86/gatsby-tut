@@ -12,7 +12,7 @@ const examples = ({ data }) => {
   } = data
   return (
     <Layout>
-      <h1>Examples page</h1>
+      <p>Examples page</p>
       <Header />
       <HeaderStatic />
       <h5>author : {author}</h5>
