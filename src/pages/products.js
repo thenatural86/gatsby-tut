@@ -1,22 +1,23 @@
 import React from "react"
-import Layout from "../components/layout"
+import { graphql } from "gatsby"
 
-import styles from "../components/products.module.css"
+const ComponentName = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
 
-// console.log(styles)
-const products = () => {
-  return (
-    <Layout>
-      <div className={styles.page}>
-        <h1>products page</h1>
-        <p className={styles.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-          iure sint laborum, libero suscipit quo rem ab? Nobis temporibus saepe
-          minus repudiandae, delectus qui accusantium.
-        </p>
-      </div>
-    </Layout>
-  )
-}
+export const query = graphql`
+  {
+    allContentfulProduct {
+      nodes {
+        price
+        title
+        slug
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`
 
-export default products
+export default ComponentName
