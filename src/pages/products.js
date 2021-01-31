@@ -14,9 +14,6 @@ const ComponentName = ({ data }) => {
     <Layout>
       <section className={styles.page}>
         {products.map(product => {
-          {
-            /* console.log(product) */
-          }
           const {
             title,
             id,
